@@ -1,0 +1,18 @@
+SMAP
+writings_jsp.java
+JSP
+*S JSP
+*F
++ 0 writings.jsp
+writings.jsp
++ 1 navbar.jsp
+navbar.jsp
++ 2 footer.jsp
+footer.jsp
+*L
+5,17:50
+5#1,31:67
+21#0,15:97
+5#2,42:112
+35#0,5:153
+*E

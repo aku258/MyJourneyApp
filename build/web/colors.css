@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 9, 2019, 3:00:31 AM
+    Author     : hp
+*/
+
+.bg-green{
+    background-color: #97c00e;
+}
+
+.active-tab123{background-color:#97c00e; }
+
+textarea {
+min-height: 60px;
+overflow-y: auto;
+word-wrap:break-word
+}
+
+.active123{
+    background-color: #97c00e ;
+}
+
