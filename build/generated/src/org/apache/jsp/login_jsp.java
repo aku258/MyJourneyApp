@@ -48,7 +48,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>Login</title>\n");
+      out.write("        <title>My Journey</title>\n");
       out.write("            <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css\">\n");
       out.write("    <link href=\"colors.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
       out.write("    <!-- Compiled and minified JavaScript -->\n");

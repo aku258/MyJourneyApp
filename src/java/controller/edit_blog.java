@@ -7,23 +7,17 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.DiaryDAO;
-import model.Diarymodel;
-import model.LoginDAO;
-import model.RegDet;
 
 /**
  *
  * @author hp
  */
-public class login extends HttpServlet {
+public class edit_blog extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,32 +32,13 @@ public class login extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-           
-            String email = request.getParameter("email");
-            String pass = request.getParameter("password");
+            HttpSession session = request.getSession();
+            session.setAttribute("mode", "edit");
+            String blogname = request.getParameter("blogn");
+            request.setAttribute("blogn", blogname);
+            request.getRequestDispatcher("displayBlog.do").forward(request, response);
             
             
-            LoginDAO ld = new LoginDAO();
-            out.println(pass);
-             HttpSession session = request.getSession();
-             List<Diarymodel> diarynames =new ArrayList<Diarymodel>(); 
-             DiaryDAO dd = new DiaryDAO();
-            //out.println(ld.checklogin(email, pass));
-            if(ld.checklogin(email,pass)){
-                session.setAttribute("user", email);
-                session.setAttribute("type", "diary");
-                session.setAttribute("diary_name", "");
-                session.setAttribute("mode", "new");
-                diarynames = dd.getDiaryNames(email,"diary");
-               // out.println(diarynames);
-                request.setAttribute("diarynames", diarynames);
-                request.getRequestDispatcher("written_diary.jsp").forward(request, response);
-                
-            }               
-            else{
-               response.sendRedirect("login.jsp");
-            }
         }
     }
 

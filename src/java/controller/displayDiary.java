@@ -5,30 +5,24 @@
  */
 package controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.BlogDAO;
+import model.Blogmodel;
 import model.DiaryDAO;
-import model.Diarymodel;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 /**
  *
  * @author hp
  */
-public class AddTimeline extends HttpServlet {
+public class displayDiary extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,56 +37,30 @@ public class AddTimeline extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            //String diary_name = request.getParameter("d_name");
-             // Apache Commons-Fileupload library classes
-            DiskFileItemFactory factory = new DiskFileItemFactory();
-            ServletFileUpload sfu  = new ServletFileUpload(factory);
-
-            if (! ServletFileUpload.isMultipartContent(request)) {
-                System.out.println("sorry. No file uploaded");
-                return;
-            }
-
-            // parse request
-            List items;
-                items = sfu.parseRequest(request);
-            
-            FileItem  id = (FileItem) items.get(0);
-            String diary_name =  id.getString();
-
-            // get uploaded file
-            FileItem file = (FileItem) items.get(1);
-            
-            DiaryDAO dd = new DiaryDAO();
-            List<Diarymodel> diarynames = new ArrayList<Diarymodel>();
+            String dname = request.getParameter("dname");
             HttpSession session = request.getSession();
             String type= session.getAttribute("type").toString();
             String user= session.getAttribute("user").toString();
-            String mode= session.getAttribute("mode").toString();
-            String url="";
-                            switch(type){
-                    case("diary"):
-                        url="written_diary.jsp";
-                        break;
-                    case("travel"):
-                        url = "travel_diary.jsp";
-                        break;
-                    case("food"):
-                        url = "food_diary.jsp";
-                        break;
-                }
-            if(dd.create_new_diary(diary_name, file, type, user,1,mode)){
-                diarynames = dd.getDiaryNames(user,type);
-                request.setAttribute("diarynames", diarynames);
-                request.getRequestDispatcher(url).forward(request, response);
+            session.setAttribute("diary_name", dname);
+            out.println(dname);
+            DiaryDAO dd = new DiaryDAO();
+            BlogDAO bd = new BlogDAO();
+            Blogmodel bm = new Blogmodel();
+            List<String> bloglist = new ArrayList<>();
+            if(dname.equals("")){
+                request.getRequestDispatcher("load_data.do?type="+type).forward(request, response);
             }
-            else{
-                response.sendRedirect(url);
+            if(dd.itisDiary(dname,user,type)){
+               bloglist = bd.showbloglist(dname,user,type);
+               request.setAttribute("bloglist", bloglist);
+               request.getRequestDispatcher("display_diary.jsp").forward(request, response);
+            }else{
+                bm = dd.getBlogdetails(dname,user,type);
+                session.setAttribute("diary_name", "");
+                request.setAttribute("bm", bm);
+                request.getRequestDispatcher("displayBlog.do").forward(request, response);
             }
-            
-        }catch (FileUploadException ex) {
-                Logger.getLogger(AddTimeline.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

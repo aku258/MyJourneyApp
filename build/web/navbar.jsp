@@ -23,7 +23,7 @@
               <a href="" class="brand-logo">
               <img src="images/my_journey_logo.jpg" alt="" style='height: 80%; width: 11.5%;'/></a>
               <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="./writings.jsp" id="writingmenu">Writings</a></li>
+                <li><a href="load_data.do?type=diary" id="writingmenu">Writings</a></li>
                 <li><a href="./About.jsp"  id="aboutmenu">About Us</a></li>
                 <li><a href="./profile.jsp" id="profilemenu">Profile</a></li>
               </ul>

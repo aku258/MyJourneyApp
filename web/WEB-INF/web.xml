@@ -24,6 +24,26 @@
         <servlet-name>add_blog</servlet-name>
         <servlet-class>controller.add_blog</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>displayDiary</servlet-name>
+        <servlet-class>controller.displayDiary</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>displayBlog</servlet-name>
+        <servlet-class>controller.displayBlog</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteBlog</servlet-name>
+        <servlet-class>controller.deleteBlog</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>edit_blog</servlet-name>
+        <servlet-class>controller.edit_blog</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>older_versions</servlet-name>
+        <servlet-class>controller.older_versions</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>register</servlet-name>
         <url-pattern>/register.do</url-pattern>
@@ -47,6 +67,26 @@
     <servlet-mapping>
         <servlet-name>add_blog</servlet-name>
         <url-pattern>/add_blog.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>displayDiary</servlet-name>
+        <url-pattern>/displayDiary.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>displayBlog</servlet-name>
+        <url-pattern>/displayBlog.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteBlog</servlet-name>
+        <url-pattern>/deleteBlog.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>edit_blog</servlet-name>
+        <url-pattern>/edit_blog.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>older_versions</servlet-name>
+        <url-pattern>/older_versions.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

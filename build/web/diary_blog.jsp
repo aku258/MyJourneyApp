@@ -21,7 +21,7 @@
     </script>
     </head>
     <body>
-        <form id="new_blog" method="post" action="add_blog.do">  
+        <form id="new_blog" method="post" enctype="multipart/form-data" action="add_blog.do">  
             <div class="input-field ">
                 <input id="blog_name" name="blog_name" type="text" class="validate">
                 <label for="blog_name">Blog name</label>

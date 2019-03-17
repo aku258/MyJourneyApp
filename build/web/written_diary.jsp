@@ -16,7 +16,7 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-    
+
     </head>
     <body>
         <header>
@@ -38,14 +38,22 @@
                     <div class="col s3">                        
                         <div class="card">
                             <div class="card-image">
-                                <c:if test="${empty diaryname.getImage()}">
-                                    <img src="images/diary_image.jpg" width="300" height="300" alt=""/>
-                                </c:if>
-                                <c:if test="${not empty diaryname.getImage()}">
-                                    <img src="data:image/jpeg;base64,${diaryname.getImage()}" width="300" height="300" />
-                                </c:if>
-                                
-                                <span class="card-title"><c:out value="${diaryname.getDiaryname()}" /></span>
+                                <c:choose>
+                                    <c:when test="${diaryname.getIs_diary() == 0}">
+                                        <img src="images/diary_image.jpg" width="300" height="300" alt=""/>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:choose>
+                                            <c:when test="${empty diaryname.getImage()}">
+                                                <img src="images/diary_image.jpg" width="300" height="300" alt=""/>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <img src="data:image/jpeg;base64,${diaryname.getImage()}" width="300" height="300" />
+                                            </c:otherwise>
+                                            </c:choose>    
+                                    </c:otherwise>
+                                </c:choose>                             
+                                                <span class="card-title"><a href="displayDiary.do?dname=${diaryname.getDiaryname()}" class="white-text"><c:out value="${diaryname.getDiaryname()}" /></a></span>
                             </div>
                         </div>
                     </div>                    

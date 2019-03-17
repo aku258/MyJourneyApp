@@ -4,15 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/hp/Documents/NetBeansProjects/MyJournalApp/web/written_diary.jsp</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/MyJournalApp/src/java/controller/blogtype.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/MyJournalApp/src/java/controller/displayImage.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/MyJournalApp/web/travel_diary.jsp</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/MyJournalApp/web/food_diary.jsp</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/MyJournalApp/web/login.jsp</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/MyJournalApp/src/java/controller/AddTimeline.java</file>
+            <file>file:/C:/Users/hp/Documents/NetBeansProjects/MyJournalApp/src/java/controller/displayBlog.java</file>
+            <file>file:/C:/Users/hp/Documents/NetBeansProjects/MyJournalApp/src/java/controller/deleteBlog.java</file>
+            <file>file:/C:/Users/hp/Documents/NetBeansProjects/MyJournalApp/web/display_diary_blog.jsp</file>
+            <file>file:/C:/Users/hp/Documents/NetBeansProjects/MyJournalApp/web/diary_blog.jsp</file>
+            <file>file:/C:/Users/hp/Documents/NetBeansProjects/MyJournalApp/src/java/controller/displayDiary.java</file>
+            <file>file:/C:/Users/hp/Documents/NetBeansProjects/MyJournalApp/src/java/controller/add_blog.java</file>
+            <file>file:/C:/Users/hp/Documents/NetBeansProjects/MyJournalApp/src/java/model/BlogDAO.java</file>
             <file>file:/C:/Users/hp/Documents/NetBeansProjects/MyJournalApp/src/java/controller/login.java</file>
             <file>file:/C:/Users/hp/Documents/NetBeansProjects/MyJournalApp/src/java/model/DiaryDAO.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/MyJournalApp/src/java/model/Diarymodel.java</file>
+            <file>file:/C:/Users/hp/Documents/NetBeansProjects/MyJournalApp/src/java/model/Blogmodel.java</file>
             <file>file:/C:/Users/hp/Documents/NetBeansProjects/MyJournalApp/web/add_diary.jsp</file>
         </group>
     </open-files>
